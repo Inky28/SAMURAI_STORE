@@ -1,0 +1,4 @@
+Name	: vlad
+Email	: vlad@gmail.com
+Number	: +380987766543
+Password: vlad123
