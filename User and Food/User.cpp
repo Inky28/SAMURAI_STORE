@@ -1,10 +1,15 @@
 #include "User.h"
 #include "Logo_Store.h"
+#include "CreditCard.h"
+#include "ClearCin.h"
+//#include <Windows.h>
+
 #include <iostream>
 #include <fstream>
+
 #define SIZE 256
 
-void User:: WriteData(string data, string info)
+void User::WriteData(string data, string info)
 {
 	ofstream dataUser;
 
@@ -35,7 +40,7 @@ void User::Registration()
 	char temp[SIZE];
 	string str;
 
-	cout << "\tWelcome\n";
+	cout << "\tWelcome to the registration menu\n";
 
 	//
 	//cin.get();
@@ -222,11 +227,13 @@ void User::Registration()
 //	}
 //}
 
-bool User::Login(string name, string password)
+bool User::LoginUser(string name, string password)
 {
 	// ‘≤ —»“»
 	if (this->name == name && this->password == password)
 		return true;
+
+
 	return false;
 }
 
@@ -235,8 +242,18 @@ void User::putCash()
 	float temp;
 	bool ok = false;
 
-	cin.get();
+	//cin.get();
 	system("cls");
+
+	//  ¿–“ ¿ ƒÀﬂ œŒœŒ¬Õ≈ÕÕﬂ
+	CreditCard card;
+
+	card.SetNumberCard();
+	card.SetOtherData();
+
+	card.ShowCreditCard();
+	//card.PrintAll();
+
 	while (!ok)
 	{
 		cout << "Enter cash to put: ";
@@ -246,7 +263,12 @@ void User::putCash()
 			setCash(temp + getCash());
 			ok = true;
 		}
+
+		Loading(25);
+
 		system("cls");
+		cout << "\tPayment successful\n";
+		system("pause");
 	}
 }
 
@@ -281,14 +303,16 @@ void User::menu(list<Product>& products)
 	{
 		system("cls");
 
-		cout << "\tUSER_MENU\n\n";
+		cout << "<><><><> USER MENU <><><><>\n\n";
 		cout << "1. Info\n";
 		cout << "2. Put cash\n";
-		cout << "3. Buy product\n";
+		cout << "3. Buy subject\n";
 		cout << "4. Show my inventory\n";
 		cout << "0. Exit\n";
 		cout << "Enter: ";
 		cin >> choice;
+
+		ClearCin();
 
 		system("cls");
 		switch (choice)
@@ -303,6 +327,12 @@ void User::menu(list<Product>& products)
 			break;
 		case 3:
 			char otherChoice;
+			if (!products.size())
+			{
+				cout << "Shop is EMPTY\n";
+				system("pause");
+			}
+
 			for (Product item : products)
 			{
 				item.print();

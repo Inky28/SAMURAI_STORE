@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void ClearCin()
+inline void ClearCin()
 {
 	cin.clear();
 	while (cin.get() != '\n');

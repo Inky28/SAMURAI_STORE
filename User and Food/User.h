@@ -4,7 +4,6 @@
 #include <string>
 #include "Product.h"
 #include "RegistrationData.h"
-//#include "ClearCin.h"
 
 using namespace std;
 
@@ -23,7 +22,7 @@ public:
 	void setPassword(string password);
 	void setCash(float cash);
 	//void Registration();
-	bool Login(string name, string password);
+	bool LoginUser(string name, string password);
 	void putCash();
 	bool buy(Product& p);
 	void print() const;
@@ -31,6 +30,7 @@ public:
 	void menu(list<Product>& products);
 	void WriteData(string data, string info) override;
 	void Registration() override;
+
 private:
 	string name;
 	string email;

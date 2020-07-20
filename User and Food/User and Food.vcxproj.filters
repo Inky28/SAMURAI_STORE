@@ -39,6 +39,9 @@
     <ClCompile Include="Admin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CreditCard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ninja_1.txt">
@@ -86,6 +89,9 @@
       <Filter>Resource Files</Filter>
     </ClInclude>
     <ClInclude Include="Admin.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CreditCard.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
   </ItemGroup>

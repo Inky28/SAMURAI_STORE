@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Admin.cpp" />
+    <ClCompile Include="CreditCard.cpp" />
     <ClCompile Include="Database.cpp" />
     <ClCompile Include="Logo_Store.cpp" />
     <ClCompile Include="main.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="Admin.h" />
     <ClInclude Include="ClearCin.h" />
     <ClInclude Include="Color.h" />
+    <ClInclude Include="CreditCard.h" />
     <ClInclude Include="Database.h" />
     <ClInclude Include="Logo_Store.h" />
     <ClInclude Include="Product.h" />

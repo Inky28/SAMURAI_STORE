@@ -2,18 +2,11 @@
 #include "Database.h"
 #include "ClearCin.h"
 #include "Admin.h"
-#define SIZE 256
 
-//Database::Database()
-//{
-//	// empty
-//}
-//
-//Database::~Database()
-//{
-//	// empty
-//}
-//const size_t SIZE = 256;
+//#include "User.h"
+//#include "User.cpp"
+
+#define SIZE 256
 
 void Database::Enter()
 {
@@ -38,6 +31,7 @@ void Database::Enter()
 		{
 		case 1:
 			Login();
+
 			break;
 
 		case 2:
@@ -77,16 +71,44 @@ void Database::Login()
 		AdminPanel();
 	}
 
-//////////////////// Ô²ÊÑÈÒÈ íå ëîã³íèòüñÿ çğàçó. Ò³ëüêè ÿêùî òè çàğåºñòğóâàâñÿ ³ óâ³éøîâ.
-	// ÎÉ ÂÅÉ // Ç×ÈÒÓª ÍÅ Ç ÔÀÉËÀ
-	// Ô²ÊÑÈÒÈ ôóíêö³¿ Login
+	if (!users.size())  // íå == 0
+	{
+		User temp;
+		if (CheckUser(stringName, stringPass))
+		{
+			temp.setName(stringName);
+			temp.setPassword(stringPass);
+			users.push_back(temp);
+		}
+	}
 
 	for (User item : users)
-		if (item.Login(stringName, stringPass))
+		if (item.LoginUser(stringName, stringPass))
 			item.menu(products);
-
-/////////////////////////////////////////////
 }
+
+bool Database::CheckUser(string name, string password)
+{
+	fstream fin("Login_User.txt");
+	string temp;
+
+	while (getline(fin, temp))
+	{
+		if (temp == name)
+		{
+			fin.close();
+			fin.open("Password_User.txt");
+			while (getline(fin, temp))
+				if (temp == password)
+					return true;
+		}
+	}
+
+	fin.close();
+	return false;
+}
+
+
 
 void Database::AdminPanel()
 {
@@ -100,12 +122,12 @@ void Database::AdminPanel()
 	{
 		system("cls");
 
-		cout << "\tADMIN PANEL\n\n";
+		cout << "~~~~~ ADMIN PANEL ~~~~~~\n\n";
 		cout << "1. Edit subject\n";
 		cout << "2. Add subject\n";
 		cout << "3. Delete subject\n";
 		cout << "4. Show all\n";
-		cout << "5. Add new Admin or Moderator\n";
+		cout << "5. Add new Moderator\n";
 		cout << "0. Exit\n";
 		cout << "Enter: ";
 		cin >> choice;

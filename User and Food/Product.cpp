@@ -56,10 +56,11 @@ void Product::setCount(size_t count)
 
 void Product::print() const
 {
-	cout << "========\n";
+	cout << "(~(~(~(~(~(~(~(~\n";
 	cout << "Product: " << this->name << endl;
 	cout << "Info:    " << this->info << endl;
 	cout << "Price:   " << this->price << endl;
+	cout << ")~)~)~)~)~)~)~)~\n";
 }
 
 void Product::menu()

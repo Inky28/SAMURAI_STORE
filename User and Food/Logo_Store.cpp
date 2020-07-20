@@ -16,6 +16,37 @@ void Space(size_t size)
 		cout << step;
 }
 
+void Loading(size_t time)
+{
+	for (int i = 1; i < 101; ++i)
+	{
+		cout << " Loading " << "\\\r" << i;
+		/*for (size_t j = 0; j < i; j++)
+		{
+			cout << "#";
+		}*/
+		Sleep(time);
+		cout << " Loading " << "|\r" << i;
+		/*for (size_t j = 0; j < i; j++)
+		{
+			cout << "#";
+		}*/
+		Sleep(time);
+		cout << " Loading " << "/\r" << i;
+		/*for (size_t j = 0; j < i; j++)
+		{
+			cout << "#";
+		}*/
+		Sleep(time);
+		cout << " Loading " << "-\r" << i;
+		/*for (size_t j = 0; j < i; j++)
+		{
+			cout << "#";
+		}*/
+		Sleep(time);
+	}
+}
+
 bool ShowLogo(const size_t SIZE)
 {
 	ifstream in("ninja_1.txt");					 //відкриємо файл для зчитування 
@@ -63,7 +94,7 @@ bool ShowLogo(const size_t SIZE)
 
 void ShowAnimationLogo()
 {
-	const size_t SIZE = 50;
+	const size_t SIZE = 40;
 	/*int choice;
 
 	do
